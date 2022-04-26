@@ -31,9 +31,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create report file
-        run: date +%s > report.txt
+        run: echo ${{ github.event.inputs.name }} > report.txt
       - name: Print inputs
         run: echo "Hello ${{ github.event.inputs.name }}" 
+#       - name: Print Data
+#         run: echo date +%s
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
